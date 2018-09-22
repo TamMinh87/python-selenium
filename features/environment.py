@@ -35,5 +35,10 @@ def before_all(context):
 
 
 def after_step(context, step):
-    if step.status == "failed":
-        context.browser.save_screenshot('screenshots/{}.png'.format(step.name))
+    #if step.status == "failed":
+    try:
+        screen_path = 'screenshots/{}.png'.format(step.name)
+        context.browser.save_screenshot(screen_path)
+        allure.attach(context.browser.get_screenshot_as_png(), name=screen_path, attachment_type=AttachmentType.PNG)
+    except Exception:
+        raise Exception("error when taking screenshot")
