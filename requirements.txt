@@ -4,3 +4,4 @@ allure-behave==2.5.1
 requests==2.19.1
 xmljson==0.1.9
 lxml==4.2.5
+PyYAML==3.13

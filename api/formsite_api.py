@@ -41,4 +41,4 @@ def get_results_count(**kwargs):
 
     endpoint = config_api.get('DEFAULT', 'get_results_count_endpoint')
 
-    return send_request(endpoint, parameters)
+    return send_request(endpoint, parameters)['fs_response']['count']['$']
