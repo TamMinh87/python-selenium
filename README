@@ -18,15 +18,16 @@ PROJECT STRUCTURE
       |__lead_capture_steps.py 				# Specific steps for Lead Capture feature
       |__...
    |__environment.py 					# This is the entry point  
-   							  and the place to define code to run before and after certain events during your testing
-   							  (before_all, after_all, before_feature, after_feature, before_step, after_step, etc...)
+   							  and the place to define code to run before 
+							  and after certain events during your testing
+   							  (before_all, after_all, before_feature, after_feature, etc...)
    |__capture-lead.feature 				# Store all scenarios for Lead Capture Feature
    |__...
 |__pages
    |__base_page.py 					# Define some basic functions to interacte with web page 
-   							  (e.g. get html element, load website, click action, send key to text field, etc...)
-   |__lead_capture_form.py 				# Define all HTML elements and function which need to perform a test on Lead Capture form
-   							  (e.g. submit form, submit empty form, verify input data, verify total records, etc...)
+   							  (e.g. get html element, load website, click action, etc...)
+   |__lead_capture_form.py 				# Define all HTML elements and function for Lead Capture form
+   							  (e.g. submit form, submit empty form, verify input data, etc...)
    |__login_form.py 					# Same as above but for Login form
    |__thank_you_pape.py 				# Same as above but for Thank You page
    |__...
