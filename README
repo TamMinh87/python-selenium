@@ -1,36 +1,36 @@
 PROJECT STRUCTURE
 .
-|__allure								# Store allure result (json format)
+|__allure						# Store allure result (json format)
 |__api 									 
-   |__common.py 						# Common functions like send_request, check_response, check_data_schema
+   |__common.py 					# Common functions like send_request, check_response, check_data_schema
    |__formsite_api.py					# Specific implementation for formsite api like get_result, get_result_count
 |__config
-   |__behave.ini 						# Behave is BDD library, this file stores some environment configs 
-   										  which can override by command param (e.g os, browser, etc...)
+   |__behave.ini 					# Behave is BDD library, this file stores some environment configs 
+   							  which can override by command param (e.g os, browser, etc...)
    |__config_api.ini 					# Store config for api (e.g. api-key, end-point)
    |__config_ui.ini 					# Store config for ui (e.g. username, password, url)
    |__config_parser.ini
-|__data									# Store the test-data
+|__data							# Store the test-data
 |__features
-   |__steps 							# "steps" folder is must under "features" folder
+   |__steps 						# "steps" folder is must under "features" folder
       |__common_steps.py 				# Define "step" which can re-use in many places
-      |__utils.py 						# Define common functions like read_test_data, compare_value, etc... 
-      |__lead_capture_steps.py 			# Specific steps for Lead Capture feature
+      |__utils.py 					# Define common functions like read_test_data, compare_value, etc... 
+      |__lead_capture_steps.py 				# Specific steps for Lead Capture feature
       |__...
    |__environment.py 					# This is the entry point  
-   										  and the place to define code to run before and after certain events during your testing
-   										  (before_all, after_all, before_feature, after_feature, before_step, after_step, etc...)
+   							  and the place to define code to run before and after certain events during your testing
+   							  (before_all, after_all, before_feature, after_feature, before_step, after_step, etc...)
    |__capture-lead.feature 				# Store all scenarios for Lead Capture Feature
    |__...
 |__pages
-   |__base_page.py 						# Define some basic functions to interacte with web page 
-   										  (e.g. get html element, load website, click action, send key to text field, etc...)
+   |__base_page.py 					# Define some basic functions to interacte with web page 
+   							  (e.g. get html element, load website, click action, send key to text field, etc...)
    |__lead_capture_form.py 				# Define all HTML elements and function which need to perform a test on Lead Capture form
-   										  (e.g. submit form, submit empty form, verify input data, verify total records, etc...)
+   							  (e.g. submit form, submit empty form, verify input data, verify total records, etc...)
    |__login_form.py 					# Same as above but for Login form
    |__thank_you_pape.py 				# Same as above but for Thank You page
    |__...
-|__screenshots 							# Store screenshot of failed step
+|__screenshots 						# Store screenshot of failed step
 
 Workflow of the test
 1. Go to "environment.py" to do init the browser
