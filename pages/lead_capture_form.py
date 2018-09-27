@@ -7,63 +7,63 @@ from features.steps.utils import read_test_data
 
 class LeadCaptureForm(BasePage):
 
-    FIRST_NAME              = (By.ID, "RESULT_TextField-1")
-    LAST_NAME               = (By.ID, "RESULT_TextField-2")
-    STREET_ADDRESS          = (By.ID, "RESULT_TextField-3")
-    CITY                    = (By.ID, "RESULT_TextField-5")
-    STATE_DROPDOWN          = (By.ID, "RESULT_RadioButton-6")
-    ZIP_CODE                = (By.ID, "RESULT_TextField-7")
-    EMAIL_ADDRESS           = (By.ID, "RESULT_TextField-9")
-    DATE_OF_DEMO            = (By.ID, "RESULT_TextField-10")
-    SUBMIT_BUTTON           = (By.ID, "FSsubmit")
-    DATE_PICKER_BUTTON      = (By.CSS_SELECTOR, "img.svg.popup_button.inline_button")
-    DATE_PICKER_TODAY       = (By.CSS_SELECTOR, "a.ui-state-default.ui-state-highlight")
+    first_name              = (By.ID, "RESULT_TextField-1")
+    last_name               = (By.ID, "RESULT_TextField-2")
+    street_address          = (By.ID, "RESULT_TextField-3")
+    city                    = (By.ID, "RESULT_TextField-5")
+    state_dropdown          = (By.ID, "RESULT_RadioButton-6")
+    zip_code                = (By.ID, "RESULT_TextField-7")
+    email_address           = (By.ID, "RESULT_TextField-9")
+    date_of_demo            = (By.ID, "RESULT_TextField-10")
+    submit_button           = (By.ID, "FSsubmit")
+    date_picker_button      = (By.CSS_SELECTOR, "img.svg.popup_button.inline_button")
+    date_picker_today       = (By.CSS_SELECTOR, "a.ui-state-default.ui-state-highlight")
 
-    FIRST_NAME_ERROR        = (By.CSS_SELECTOR, "#q17 > div.invalid_message")
-    LAST_NAME_ERROR         = (By.CSS_SELECTOR, "#q18 > div.invalid_message")
-    STREET_ADDRESS_ERROR    = (By.CSS_SELECTOR, "#q19 > div.invalid_message")
-    CITY_ERROR              = (By.CSS_SELECTOR, "#q21 > div.invalid_message")
-    STATE_DROPDOWN_ERROR    = (By.CSS_SELECTOR, "#q22 > div.invalid_message")
-    ZIP_CODE_ERROR          = (By.CSS_SELECTOR, "#q23 > div.invalid_message")
-    EMAIL_ADDRESS_ERROR     = (By.CSS_SELECTOR, "#q25 > div.invalid_message")
-    DATE_OF_DEMO_ERROR      = (By.CSS_SELECTOR, "#q27 > div.invalid_message")
+    first_name_error        = (By.CSS_SELECTOR, "#q17 > div.invalid_message")
+    last_name_error         = (By.CSS_SELECTOR, "#q18 > div.invalid_message")
+    street_address_error    = (By.CSS_SELECTOR, "#q19 > div.invalid_message")
+    city_error              = (By.CSS_SELECTOR, "#q21 > div.invalid_message")
+    state_dropdown_error    = (By.CSS_SELECTOR, "#q22 > div.invalid_message")
+    zip_code_error          = (By.CSS_SELECTOR, "#q23 > div.invalid_message")
+    email_address_error     = (By.CSS_SELECTOR, "#q25 > div.invalid_message")
+    date_of_demo_error      = (By.CSS_SELECTOR, "#q27 > div.invalid_message")
 
     def is_lead_capture_form(self):
-        return self.is_element_visible(self.FIRST_NAME)
+        return self.is_element_visible(self.first_name)
 
     def load_page(self):
         url = config_gui.get('DEFAULT', 'lead_capture_form_url')
         self.load_website(url)
 
     def select_date_from_date_picker(self):
-        self.click(self.DATE_PICKER_BUTTON)
-        self.click(self.DATE_PICKER_TODAY)
+        self.click(self.date_picker_button)
+        self.click(self.date_picker_today)
 
     def submit_form(self, **kwargs):
-        self.send_key(self.FIRST_NAME, kwargs.get("first_name"))
-        self.send_key(self.LAST_NAME, kwargs.get("last_name"))
-        self.send_key(self.STREET_ADDRESS, kwargs.get("street_address"))
-        self.send_key(self.CITY, kwargs.get("city"))
-        self.select_by_text(self.STATE_DROPDOWN, kwargs.get("state"))
-        self.send_key(self.ZIP_CODE, kwargs.get("zip_code"))
-        self.send_key(self.EMAIL_ADDRESS, kwargs.get("email_address"))
-        self.send_key(self.DATE_OF_DEMO, kwargs.get("date_of_demo"))
-        self.click(self.SUBMIT_BUTTON)
+        self.send_key(self.first_name, kwargs.get("first_name"))
+        self.send_key(self.last_name, kwargs.get("last_name"))
+        self.send_key(self.street_address, kwargs.get("street_address"))
+        self.send_key(self.city, kwargs.get("city"))
+        self.select_by_text(self.state_dropdown, kwargs.get("state"))
+        self.send_key(self.zip_code, kwargs.get("zip_code"))
+        self.send_key(self.email_address, kwargs.get("email_address"))
+        self.send_key(self.date_of_demo, kwargs.get("date_of_demo"))
+        self.click(self.submit_button)
 
     def submit_form_date_picker(self, **kwargs):
-        self.send_key(self.FIRST_NAME, kwargs.get("first_name"))
-        self.send_key(self.LAST_NAME, kwargs.get("last_name"))
-        self.send_key(self.STREET_ADDRESS, kwargs.get("street_address"))
-        self.send_key(self.CITY, kwargs.get("city"))
-        self.select_by_text(self.STATE_DROPDOWN, kwargs.get("state"))
-        self.send_key(self.ZIP_CODE, kwargs.get("zip_code"))
-        self.send_key(self.EMAIL_ADDRESS, kwargs.get("email_address"))
+        self.send_key(self.first_name, kwargs.get("first_name"))
+        self.send_key(self.last_name, kwargs.get("last_name"))
+        self.send_key(self.street_address, kwargs.get("street_address"))
+        self.send_key(self.city, kwargs.get("city"))
+        self.select_by_text(self.state_dropdown, kwargs.get("state"))
+        self.send_key(self.zip_code, kwargs.get("zip_code"))
+        self.send_key(self.email_address, kwargs.get("email_address"))
         self.select_date_from_date_picker()
-        self.click(self.SUBMIT_BUTTON)
+        self.click(self.submit_button)
 
 
     def submit_empty_form(self):
-        self.click(self.SUBMIT_BUTTON)
+        self.click(self.submit_button)
 
     def get_total_records(self):
         return get_results_count()
@@ -124,17 +124,17 @@ class LeadCaptureForm(BasePage):
         assert result is True, error_messsage
 
     def verify_error_message_display(self):
-        assert self.is_element_visible(self.FIRST_NAME_ERROR)
-        assert self.is_element_visible(self.LAST_NAME_ERROR)
-        assert self.is_element_visible(self.STREET_ADDRESS_ERROR)
-        assert self.is_element_visible(self.CITY_ERROR)
-        assert self.is_element_visible(self.STATE_DROPDOWN_ERROR)
-        assert self.is_element_visible(self.ZIP_CODE_ERROR)
-        assert self.is_element_visible(self.EMAIL_ADDRESS_ERROR)
-        assert self.is_element_visible(self.DATE_OF_DEMO_ERROR)
+        assert self.is_element_visible(self.first_name_error)
+        assert self.is_element_visible(self.last_name_error)
+        assert self.is_element_visible(self.street_address_error)
+        assert self.is_element_visible(self.city_error)
+        assert self.is_element_visible(self.state_dropdown_error)
+        assert self.is_element_visible(self.zip_code_error)
+        assert self.is_element_visible(self.email_address_error)
+        assert self.is_element_visible(self.date_of_demo_error)
 
     def verify_state_dropdown_options(self):
-        actual_options = self.get_select_options(self.STATE_DROPDOWN)
+        actual_options = self.get_select_options(self.state_dropdown)
         expected_options = read_test_data("lead_capture_data")["state_options"]
 
         assert actual_options == expected_options, \

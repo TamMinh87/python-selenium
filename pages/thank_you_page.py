@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 class ThankYouPage(BasePage):
 
-    SUCCESS_TITLE = (By.CLASS_NAME, "success-title")
+    success_title = (By.CLASS_NAME, "success-title")
 
     def is_thank_you_page(self):
-        return self.is_element_visible(self.SUCCESS_TITLE)
+        return self.is_element_visible(self.success_title)

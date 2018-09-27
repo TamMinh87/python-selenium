@@ -5,14 +5,14 @@ from config.config_parser import config_gui
 
 class LoginForm(BasePage):
 
-    FORM_HEADER = (By.CLASS_NAME, "segment_header")
-    PASSWORD_FIELD = (By.ID, "Password")
+    form_header = (By.CLASS_NAME, "segment_header")
+    password_field = (By.ID, "Password")
 
 
     def bypass_login_form(self):
-        if self.is_element_visible(self.FORM_HEADER):
+        if self.is_element_visible(self.form_header):
             self.input_password()
 
     def input_password(self):
         protected_password = config_gui.get('DEFAULT', 'protected_password')
-        self.send_key(self.PASSWORD_FIELD, protected_password + "\n")
+        self.send_key(self.password_field, protected_password + "\n")
