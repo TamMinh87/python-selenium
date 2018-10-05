@@ -26,5 +26,4 @@ def get_config(config_uid):
     return config
 
 
-config_api = get_config('API')
 config_gui = get_config('GUI')

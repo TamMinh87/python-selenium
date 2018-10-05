@@ -49,15 +49,6 @@ class BasePage:
             EC.element_to_be_clickable(locator),
             message='Element %s %s is not clickable' % locator)
 
-    def wait_ajax(self):
-        """Awaiting ajax"""
-        while self.driver.execute_script("return jQuery.active") != 0:
-            time.sleep(0.5)
-
-    def wait_for_page_load_complete(self):
-        WebDriverWait(self.driver, self.timeout).until(
-            lambda driver: driver.execute_script('return document.readyState') == 'complete')
-
     def click_on_element(self, element):
         action = ActionChains(self.driver)
         action.move_to_element(element)
@@ -73,29 +64,5 @@ class BasePage:
         element = self.get_element(locator)
         element.send_keys(text)
 
-    def select_by_index(self, locator, index):
-        index = int(index)
-        select = Select(self.driver.find_element(*locator))
-        select.select_by_index(index)
-
-        return select
-
-    def select_by_text(self, locator, text):
-        select = Select(self.driver.find_element(*locator))
-        select.select_by_visible_text(text)
-
-        return select
-
-    def select_last_index(self, locator):
-        select = Select(self.driver.find_element(*locator))
-        select.select_by_index(len(select.options)-1)
-
-        return select
-
-    def get_select_options(self, locator):
-        options = []
-        select = Select(self.driver.find_element(*locator))
-        for option in select.options:
-            options.append(option.text)
-
-        return options
+    def get_text(self, locator):
+        return self.get_element(locator).text
