@@ -79,21 +79,3 @@ SETUP PROJECT (MacOS, Linux)
 8. Generate report
 	- allure serve ./allure/
 
-
-QUESTION
-If we wanted to run this test as part of CI or nightly build process how could we host the test and alert us as to the results or failure of the test?
-
-We have 3 items in above question
-1. run this test as part of CI or nightly build process ?
-We can run UI tests as part of CI if we make sure they're fast otherwise I prefer nightly build process, why?
- - "Keep the build fast" is one of practice for Continuous Integration, development-team should not wait 10 minutes (or more) for each commit
- - UI tests always take time to run (than unit-test, integration-test, api-test)
- - UI tests may need an deployment to be able to run
-
-2. how could we host the test ?
- - please see SETUP PROJECT part in README file
- 	- put the project to nightly build machine or CI machine
- 	- use command to trigger the test
-
-3. alert us as to the results or failure of the test ?
- - we can send Email or send notification to Slack (Jenkins supports both)
